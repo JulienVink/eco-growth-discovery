@@ -8,6 +8,18 @@
     line-height: 1.5;
     color: #606c71;
   }
+  /* Hide the "Skip to content" link until it is focused */
+  #skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #eee;
+    padding: 8px;
+    z-index: 100;
+  }
+  #skip-to-content:focus {
+    top: 0;
+  }
   .page-header {
     color: #fff;
     text-align: center;

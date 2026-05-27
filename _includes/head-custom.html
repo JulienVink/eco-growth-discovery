@@ -8,6 +8,20 @@
     line-height: 1.5;
     color: #606c71;
   }
+  /* Prevent 'Skip to content' link from appearing unstyled during initial render */
+  #skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #157878;
+    color: #fff;
+    padding: 5px 10px;
+    text-decoration: none;
+    z-index: 1000;
+  }
+  #skip-to-content:focus {
+    top: 0;
+  }
   .page-header {
     color: #fff;
     text-align: center;

@@ -55,4 +55,17 @@
   @media screen and (min-width: 64em) {
     .main-content { max-width: 64rem; padding: 2rem 6rem; margin: 0 auto; font-size: 1.1rem; }
   }
+  /* Prevent FOUC for Skip to content link */
+  #skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #159957;
+    color: white;
+    padding: 8px 10px;
+    z-index: 10000;
+  }
+  #skip-to-content:focus {
+    top: 0;
+  }
 </style>

@@ -1,4 +1,19 @@
 <style>
+  /* Performance Optimization: Prevent Layout Shift for 'Skip to content' link */
+  #skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #159957;
+    color: white;
+    padding: 8px;
+    z-index: 101;
+    transition: top 0.2s;
+  }
+  #skip-to-content:focus {
+    top: 0;
+  }
+
   /* Critical CSS for First Contentful Paint */
   body {
     padding: 0;

@@ -2,17 +2,20 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {% seo %}
     <!-- Performance Optimization: Preconnect to fonts.gstatic.com for faster font loading -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Performance Optimization: Preconnect to fonts.googleapis.com to reduce DNS, TCP, and TLS latency -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <!-- Performance Optimization: DNS Prefetch for fonts.googleapis.com as a fallback -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <!-- Performance Optimization: Preload the Google Fonts v2 API stylesheet -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" as="style" type="text/css" crossorigin>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Performance Optimization: Preload the Google Fonts v2 API stylesheet with high priority -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" as="style" fetchpriority="high">
+    <!-- Performance Optimization: Non-blocking Google Fonts loading pattern -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+    </noscript>
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- Performance Optimization: High fetchpriority for the main stylesheet to improve LCP -->

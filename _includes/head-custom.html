@@ -8,6 +8,20 @@
     line-height: 1.5;
     color: #606c71;
   }
+  /* Optimization: Hide skip-to-content link off-screen to prevent layout shift and FOUC */
+  #skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #159957;
+    color: white;
+    padding: 8px;
+    z-index: 101;
+    transition: top 0.2s;
+  }
+  #skip-to-content:focus {
+    top: 0;
+  }
   .page-header {
     color: #fff;
     text-align: center;

@@ -55,4 +55,18 @@
   @media screen and (min-width: 64em) {
     .main-content { max-width: 64rem; padding: 2rem 6rem; margin: 0 auto; font-size: 1.1rem; }
   }
+  /* Optimization: Ensure skip-link is hidden off-screen to avoid FOUC and Layout Shift */
+  #skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 5px;
+    padding: 10px;
+    background: #159957;
+    color: #fff;
+    z-index: 101;
+    transition: top 0.2s;
+  }
+  #skip-to-content:focus {
+    top: 0;
+  }
 </style>

@@ -2,21 +2,31 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {% seo %}
     <!-- Performance Optimization: Preconnect to fonts.gstatic.com for faster font loading -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Performance Optimization: Preconnect to fonts.googleapis.com to reduce DNS, TCP, and TLS latency -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <!-- Performance Optimization: DNS Prefetch for fonts.googleapis.com as a fallback -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <!-- Performance Optimization: Preload the Google Fonts v2 API stylesheet -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" as="style" type="text/css" crossorigin>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Performance Optimization: Preload the Google Fonts v2 API stylesheet with high fetchpriority -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" as="style" fetchpriority="high" crossorigin>
+
+    <!-- Performance Optimization: Load Google Fonts asynchronously using the media='print' pattern -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" media="print" onload="this.media='all'" crossorigin>
+
+    <!-- Performance Optimization: Fallback for users with JavaScript disabled -->
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" crossorigin>
+    </noscript>
+
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     <!-- Performance Optimization: High fetchpriority for the main stylesheet to improve LCP -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}" fetchpriority="high">
+
     {% include head-custom.html %}
   </head>
   <body>

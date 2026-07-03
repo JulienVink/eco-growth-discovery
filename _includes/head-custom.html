@@ -55,4 +55,17 @@
   @media screen and (min-width: 64em) {
     .main-content { max-width: 64rem; padding: 2rem 6rem; margin: 0 auto; font-size: 1.1rem; }
   }
+  #skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #159957;
+    color: #fff;
+    padding: 8px 10px;
+    z-index: 101;
+    transition: top 0.2s;
+  }
+  #skip-to-content:focus {
+    top: 0;
+  }
 </style>

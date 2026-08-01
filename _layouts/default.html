@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
+    <!-- Performance Optimization: Ensure charset is declared first to prevent re-parsing of the document -->
     <meta charset="UTF-8">
+    <!-- Performance Optimization: Declare viewport early to allow the browser to start layout calculations immediately -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {% seo %}
-    <!-- Performance Optimization: Preconnect to fonts.gstatic.com for faster font loading -->
+    <!-- Performance Optimization: Preconnect to fonts.gstatic.com (with crossorigin) to pre-establish connection for actual font files -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Performance Optimization: Preconnect to fonts.googleapis.com to reduce DNS, TCP, and TLS latency -->
+    <!-- Performance Optimization: Preconnect to fonts.googleapis.com (without crossorigin) to reduce latency for the stylesheet fetch -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <!-- Performance Optimization: DNS Prefetch for fonts.googleapis.com as a fallback -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <!-- Performance Optimization: Preload the Google Fonts v2 API stylesheet -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" as="style" type="text/css" crossorigin>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Performance Optimization: Preload the Google Fonts stylesheet with high fetchpriority for early discovery and retrieval -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" as="style" fetchpriority="high">
+    <!-- Performance Optimization: Non-blocking Google Fonts loading pattern using media="print" and onload transition to prevent rendering block -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    <!-- Fallback for browsers with JavaScript disabled -->
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+    </noscript>
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <!-- Performance Optimization: High fetchpriority for the main stylesheet to improve LCP -->
+    <!-- Performance Optimization: High fetchpriority for the main stylesheet to improve Largest Contentful Paint (LCP) -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}" fetchpriority="high">
     {% include head-custom.html %}
   </head>
